@@ -180,6 +180,11 @@ run_npm "install --production"
 run_npm "rebuild"
 echo "Dependencies installed" | indent
 
+# add our special extra requirement of the xlhtml package
+echo "-----> Installing xlhtml"
+sudo apt-get -y install xlhtml
+echo "-----> xlhtml installed" | indent
+
 echo "-----> Building runtime environment"
 mkdir -p $BUILD_DIR/.profile.d
 echo "export PATH=\"\$HOME/bin:\$HOME/node_modules/.bin:\$PATH\"" > $BUILD_DIR/.profile.d/nodejs.sh
